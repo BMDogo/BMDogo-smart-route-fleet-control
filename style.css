@@ -1,0 +1,348 @@
+/* ==========================================================================
+   🎨 DESIGN SYSTEM COLOR TOKENS & DESIGN CONSTANTS
+   ========================================================================== */
+
+/* ☀️ LIGHT THEME BRAND SYSTEM VARIABLES */
+:root {
+    --bg-main: #f0f4f8;
+    --bg-card: #ffffff;
+    --bg-sidebar: #e2e8f0;
+    --bg-announcement: #0284c7; /* Sky Blue Cargo Branding */
+    
+    --text-primary: #101827;
+    --text-muted: #4b5563;
+    --text-inverse: #ffffff;
+    
+    --accent: #0284c7;
+    --accent-hover: #0369a1;
+    --border: #cbd5e1;
+    --danger: #dc2626;  /* Overload Flag Code */
+    --success: #16a34a; /* Safe Dispatch Code */
+}
+
+/* 🌙 DARK THEME BRAND SYSTEM VARIABLES */
+.dark-Mode {
+    --bg-main: #0b0f19;
+    --bg-card: #1f293d;
+    --bg-sidebar: #151f32;
+    --bg-announcement: #1e3a8a;
+    
+    --text-primary: #f9fafb;
+    --text-muted: #9ca3af;
+    --text-inverse: #ffffff;
+    
+    --accent: #38bdf8;
+    --accent-hover: #7dd3fc;
+    --border: #374151;
+    --danger: #ef4444;
+    --success: #4ade80;
+}
+
+/* ==========================================================================
+   🧱 GLOBAL RESETS AND STRUCTURAL FRAMEWORK
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    min-height: 100vh;
+    padding-bottom: 60px; /* Leave breathing space for pinned baseline layout footer */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* ==========================================================================
+   🎮 SECTION 1: GLOBAL HEADER AND FILTERS
+   ========================================================================== */
+.dashboard-header {
+    background-color: var(--bg-card);
+    border-bottom: 2px solid var(--accent);
+    padding: 15px 20px;
+}
+
+.header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.brand-title {
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+}
+
+.theme-btn {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--accent);
+    padding: 6px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s ease-in-out;
+}
+
+.theme-btn:hover {
+    background-color: var(--accent);
+    color: var(--text-inverse);
+}
+
+.header-filters {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter-input {
+    flex: 2;
+    min-width: 200px;
+    padding: 8px 12px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    outline: none;
+}
+
+.filter-select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    outline: none;
+    cursor: pointer;
+}
+
+.active-badge {
+    background-color: var(--bg-sidebar);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    border: 1px solid var(--border);
+}
+
+/* ==========================================================================
+   🚨 SECTION 2: CRITICAL ALERTS BANNER
+   ========================================================================== */
+.alert-banner {
+    background-color: var(--bg-announcement);
+    color: var(--text-inverse);
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   🏗️ SECTION 3: TRI-COLUMN MASTER GRAPHIC GRID LAYOUT
+   ========================================================================== */
+.workspace-layout {
+    display: grid;
+    grid-template-columns: 0.8fr 2fr 1.2fr;
+    gap: 15px;
+    padding: 15px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* RESPONSIVE VIEW BREAKPOINT FOR TABLETS/MOBILES */
+@media (max-width: 1024px) {
+    .workspace-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.workspace-column {
+    background-color: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.column-title {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border);
+    letter-spacing: 0.5px;
+}
+
+/* --- COLUMN A: HUB ASIDE STYLES --- */
+.hub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.hub-badge-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-sidebar);
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+.badge-count {
+    font-weight: bold;
+    color: var(--accent);
+}
+
+/* --- COLUMN B: TRUCKING MATRIX CARD LAYOUT ENGINE --- */
+.fleet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.vehicle-card {
+    background-color: var(--bg-sidebar);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 6px;
+}
+
+.vehicle-id {
+    font-size: 1rem;
+}
+
+.status-indicator {
+    font-size: 0.75rem;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.status-transit { 
+    background-color: var(--accent);
+     color: var(--text-inverse);
+     }
+.status-alert {
+     background-color: var(--danger);
+      color: var(--text-inverse); 
+    }
+
+.card-body p {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    color: var(--text-muted);
+}
+
+.data-highlight {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.reassign-block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.card-select {
+    flex: 1;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid var(--border);
+}
+
+/* ⚠️ DYNAMIC OVERLOADED STATE STYLING */
+.overload-danger {
+    border: 2px dashed var(--danger);
+    background-color: rgba(245, 23, 23, 0.1);
+}
+
+.danger-highlight {
+    color: var(--danger);
+    font-weight: 800;
+}
+.alert-text{
+    color: var(--text-primary);
+}
+/* --- COLUMN C: FREIGHT STATISTICAL SUMMARY ANALYTICS --- */
+.analytics-panel h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.panel-divider {
+    border: 0;
+    height: 1px;
+    background: var(--border);
+    margin-bottom: 15px;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--border);
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.stat-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.value-danger { 
+    color: var(--danger);
+ }
+.value-success { color: var(--success); }
+
+/* ==========================================================================
+   📌 BASELINE PINNED WEB BASING PANEL
+   ========================================================================== */
+.dashboard-footer {
+    width: 100%;
+    background-color: var(--bg-card);
+    border-top: 2px solid var(--accent);
+    padding: 12px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.dashboard-footer pre {
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    letter-spacing: 1px;
+}

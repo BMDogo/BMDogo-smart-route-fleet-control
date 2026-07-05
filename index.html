@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMDogo Smart-Route Fleet Control Center</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="dashboard-header">
+        <div class="header-main">
+            <h1 class="brand-title">🚛 BMDogo Smart-Route Control Center</h1>
+            <button id="toggleTheme" class="theme-btn">🌙 Dark-Mode</button>
+        </div>
+
+        <div class="header-filters">
+            <input type="text" id="searchDriver" placeholder="Search Drivers..." class="filter-input">
+            <div class="select-wrapper">
+                <select id="filterHub" class="filter-select">
+                    <option value="All">All Shipping Hubs</option>
+                    <option value="Kano">Kano Hub</option>
+                    <option value="Abuja">Abuja Hub</option>
+                    <option value="Lagos">Lagos Hub</option>
+                    <option value="Kaduna">Kaduna Hub</option>
+                </select>
+            </div>
+            <div class="active-badge">Active Vehicles: <span id="activeCount"></span></div>
+        </div>
+    </header>
+
+    <section class="alert-banner" id="alertBanner">
+        <p class="alert-text"></p>
+    </section>
+
+    <main class="workspace-layout">
+
+        <aside class="workspace-column sidebar-left">
+            <h2 class="column-title">🏢 Regional Hub Status</h2>
+            <div class="hub-list">
+                <div class="hub-badge-item">
+                    <span>📍 Kano Hub Overview</span>
+                    <span class="badge-count" id="countKano"></span>
+                </div>
+                <div class="hub-badge-item">
+                    <span>📍 Abuja Hub Overview</span>
+                    <span class="badge-count" id="countAbuja"></span>
+                </div>
+                <div class="hub-badge-item">
+                    <span>📍 Lagos Hub Overview</span>
+                    <span class="badge-count" id="countLagos"></span>
+                </div>
+                <div class="hub-badge-item">
+                    <span>📍 Kaduna Hub Overview</span>
+                    <span class="badge-count" id="countKaduna"></span>
+                </div>
+            </div>
+        </aside>
+
+        <section class="workspace-column matrix-center">
+            <h2 class="column-title">🚛 Live Fleet Tracking Matrix</h2>
+            <div class="fleet-grid" id="fleetGrid">
+                
+            </div>
+        </section>
+
+        <aside class="workspace-column sidebar-right">
+            <h2 class="column-title">📊 Total Freight Overview</h2>
+            <div class="analytics-panel">
+                <h3>📈 Shipping Capacity Stats</h3>
+                <hr class="panel-divider">
+
+                <div class="stat-row">
+                    <p class="stat-label">Total Fleet Weight On-Road:</p>
+                    <p class="stat-value"><span id="totalWeight"></span> KG</p>
+                </div>
+
+                <div class="stat-row">
+                    <p class="stat-label">🔴 Overloaded Vehicles:</p>
+                    <p class="stat-value value-danger" id="overloadCount"></p>
+                </div>
+
+                <div class="stat-row">
+                    <p class="stat-label">🟢 Idle Vehicles Capacity:</p>
+                    <p class="stat-value value-success" id="idleCount"></p>
+                </div>
+            </div>
+        </aside>
+
+    </main>
+
+    <footer class="dashboard-footer">
+        <pre>Powered by: BMDogo Tech  |  @2026  |  &lt; Code with Basheer &gt;</pre>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
